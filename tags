@@ -1,0 +1,85 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CC	Makefile	/^CC=gcc$/;"	m
+GDT_BEGIN	init.h	9;"	d
+GDT_LEN	init.h	11;"	d
+IDT_BEGIN	init.h	13;"	d
+IDT_LEN	init.h	15;"	d
+LD	Makefile	/^LD=ld$/;"	m
+OBJCOPY	Makefile	/^OBJCOPY=objcopy$/;"	m
+PRINT_STR	boot.S	/^PRINT_STR:	#display a string,and StrAddr is the address,%cx is the length of the string$/;"	l
+READBEGIN	boot.S	/^#define READBEGIN $0x7e00$/;"	d
+_start	boot.S	/^_start:$/;"	l
+access	init.h	/^	u8int  access;              \/\/ Access flags, determine what ring this segment can be used in.$/;"	m	struct:gdt_entry
+base	init.h	/^	u32int base;                \/\/gdt表偏移地址$/;"	m	struct:gdt_ptr
+base_high	init.h	/^	u8int  base_high;           \/\/ The last 8 bits of the base.$/;"	m	struct:gdt_entry
+base_low	init.h	/^	u16int base_low;            \/\/ The lower 16 bits of the base.$/;"	m	struct:gdt_entry
+base_middle	init.h	/^	u8int  base_middle;         \/\/ The next 8 bits of the base.$/;"	m	struct:gdt_entry
+call	boot.S	/^call    PRINT_STR$/;"	l
+clear_screeen	boot.S	/^clear_screeen:$/;"	l
+cli	boot.S	/^cli	#关中断$/;"	l
+gdt	boot.S	/^gdt:$/;"	l
+gdt_entry	init.h	/^struct gdt_entry$/;"	s
+gdt_ptr	init.h	/^struct gdt_ptr$/;"	s
+gdtr	boot.S	/^gdtr:$/;"	l
+granularity	init.h	/^	u8int  granularity;$/;"	m	struct:gdt_entry
+idtr	boot.S	/^idtr: .word 0,0,0$/;"	l
+incb	boot.S	/^incb	 %dh$/;"	l
+init_cursor	boot.S	/^init_cursor:$/;"	l
+int	boot.S	/^int	 $0x10$/;"	l
+int	boot.S	/^int	$0x10$/;"	l
+int	boot.S	/^int	$0x13$/;"	l
+int	boot.S	/^int	$0x15$/;"	l
+int	boot.S	/^int	$0x16$/;"	l
+int	boot.S	/^int      $0x10$/;"	l
+jmp	boot.S	/^jmp	init_cursor$/;"	l
+jmp	boot.S	/^jmp     .$/;"	l
+jmp	init32_s.S	/^jmp .$/;"	l
+lgdt	boot.S	/^lgdt	gdtr$/;"	l
+lidt	boot.S	/^lidt	idtr$/;"	l
+limit	init.h	/^	u16int limit;               \/\/gdt表长度$/;"	m	struct:gdt_ptr
+limit_low	init.h	/^	u16int limit_low;           \/\/ The lower 16 bits of the limit.$/;"	m	struct:gdt_entry
+ljmp	boot.S	/^ljmp	$0x8,$0x0	#跳转到加载代码的地方，保护模式下执行该指令后CS就是段选择子，第二位操作数为IP指针，即段内偏移，通过查找gdt或者ldt加上IP得到线性地址，如果没有开启分页机制则直接是物理地址。$/;"	l
+lmsw	boot.S	/^lmsw	%ax$/;"	l
+mov	boot.S	/^mov	 $0x0300,%ax$/;"	l
+mov	boot.S	/^mov	$0x0000,%ax #wating for user input$/;"	l
+mov	boot.S	/^mov	$0x0ffff,%dx$/;"	l
+movb	boot.S	/^movb	 $0x00,%bh$/;"	l
+movb	boot.S	/^movb	 $0x00,%dl$/;"	l
+movb	boot.S	/^movb	$0,%dh$/;"	l
+movb	boot.S	/^movb	$0x00,%dl	#设备号，0是软盘，80是磁盘，光盘需要扫描$/;"	l
+movb	boot.S	/^movb	$0x02,%ah$/;"	l
+movb	boot.S	/^movb	$2,%al		#扇区数$/;"	l
+movw	boot.S	/^movw	 $0x000c,%bx$/;"	l
+movw	boot.S	/^movw	$0,%cx$/;"	l
+movw	boot.S	/^movw	$0x0000,%bx$/;"	l
+movw	boot.S	/^movw	$0x0000,%dx$/;"	l
+movw	boot.S	/^movw	$0x0001,%ax$/;"	l
+movw	boot.S	/^movw	$0x0001,%bx #设备号居然是1$/;"	l
+movw	boot.S	/^movw	$0x0002,%cx	#扇区号是从1开始！！，低六位表示扇区开始，高10位是盘面$/;"	l
+movw	boot.S	/^movw	$0x0003,%cx$/;"	l
+movw	boot.S	/^movw	$0x0200,%ax$/;"	l
+movw	boot.S	/^movw	$0x0600,%ax$/;"	l
+movw	boot.S	/^movw	$0x0700,%bx$/;"	l
+movw	boot.S	/^movw	$0x5307,%ax$/;"	l
+movw	boot.S	/^movw	$0x7e00,%bx$/;"	l
+movw	boot.S	/^movw	$BootMessage,%bx$/;"	l
+movw	boot.S	/^movw	$BootMessage2,%bx$/;"	l
+movw	boot.S	/^movw	%bx,StrAddr$/;"	l
+movw	boot.S	/^movw     $0x1301,%ax$/;"	l
+movw	boot.S	/^movw     StrAddr,%bp$/;"	l
+movw	boot.S	/^movw    $14,%cx$/;"	l
+movw	boot.S	/^movw    $51,%cx$/;"	l
+movw	init32_s.S	/^movw $0x10,%ax$/;"	l
+movw	init32_s.S	/^movw $0x18,%ax$/;"	l
+movw	init32_s.S	/^movw %ax,%ds$/;"	l
+movw	init32_s.S	/^movw %ax,%ss$/;"	l
+popw	boot.S	/^popw	 %cx$/;"	l
+pushw	boot.S	/^pushw	 %cx$/;"	l
+read_loader	boot.S	/^read_loader:$/;"	l
+ret	boot.S	/^ret$/;"	l
+start	cboot.s	/^start:$/;"	l
